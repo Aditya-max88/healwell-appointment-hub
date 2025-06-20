@@ -1,3 +1,4 @@
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -100,4 +101,111 @@
   body {
     @apply bg-background text-foreground;
   }
+}
+
+/* Custom animations for healthcare website */
+@layer utilities {
+  .animation-delay-1000 {
+    animation-delay: 1s;
+  }
+  
+  .animation-delay-2000 {
+    animation-delay: 2s;
+  }
+  
+  /* Floating animation for hero section elements */
+  @keyframes float {
+    0%, 100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-10px);
+    }
+  }
+  
+  .animate-float {
+    animation: float 3s ease-in-out infinite;
+  }
+  
+  /* Smooth scroll behavior */
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  /* Custom gradient backgrounds */
+  .bg-medical-gradient {
+    background: linear-gradient(135deg, #3b82f6 0%, #10b981 100%);
+  }
+  
+  .bg-hero-gradient {
+    background: linear-gradient(135deg, rgba(59, 130, 246, 0.1) 0%, rgba(16, 185, 129, 0.1) 100%);
+  }
+  
+  /* Hover effects for cards */
+  .card-hover-effect {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  
+  .card-hover-effect:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  }
+  
+  /* Pulse animation for emergency contact */
+  .pulse-emergency {
+    animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  }
+  
+  @keyframes pulse {
+    0%, 100% {
+      opacity: 1;
+    }
+    50% {
+      opacity: 0.7;
+    }
+  }
+  
+  /* Custom button animations */
+  .btn-medical {
+    background: linear-gradient(135deg, #f59e0b 0%, #f97316 100%);
+    transition: all 0.3s ease;
+  }
+  
+  .btn-medical:hover {
+    background: linear-gradient(135deg, #f97316 0%, #ea580c 100%);
+    transform: translateY(-2px);
+    box-shadow: 0 10px 20px rgba(245, 158, 11, 0.3);
+  }
+}
+
+/* Responsive improvements */
+@media (max-width: 768px) {
+  .hero-title {
+    font-size: 2.5rem;
+  }
+  
+  .hero-subtitle {
+    font-size: 1.5rem;
+  }
+  
+  .section-padding {
+    padding: 3rem 0;
+  }
+}
+
+/* Accessibility improvements */
+@media (prefers-reduced-motion: reduce) {
+  .animate-pulse,
+  .animate-float,
+  .card-hover-effect {
+    animation: none;
+    transition: none;
+  }
+}
+
+/* Focus styles for better accessibility */
+button:focus,
+a:focus {
+  outline: 2px solid #3b82f6;
+  outline-offset: 2px;
 }
