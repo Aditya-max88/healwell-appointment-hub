@@ -4,57 +4,65 @@ Our Solution We’ve built a streamlined system using Zoho CRM to centralize and
 
 Key Features & Workflow Patient Registration & Lead Creation
 
-Patients fill out a digital appointment form.
+-> Patients fill out a digital appointment form.
 
-Submitting this form automatically generates a lead in Zoho CRM.
+  Submitting this form automatically generates a lead in Zoho CRM.
 
-Appointment Scheduling & Doctor Assignment
+-> Appointment Scheduling & Doctor Assignment
 
-Appointments can be tracked easily within the CRM.
+  Appointments can be tracked easily within the CRM.
+  
+  Doctors are managed through a Doctor Module, where you add and view doctor profiles and availability.
+  
+  Once a doctor is assigned, automated email notifications are sent to both the patient and doctor with appointment details.
 
-Doctors are managed through a Doctor Module, where you add and view doctor profiles and availability.
+-> Medical Data Capture
 
-Once a doctor is assigned, automated email notifications are sent to both the patient and doctor with appointment details.
+  For each patient, you can log:
+  
+  Prescriptions (e.g., medications like “Paracetamol 650”)
+  
+  Lab test results
+  
+  Imaging files and reports (e.g., MRIs)
 
-Medical Data Capture
+-> Treatment Completion & Notes
 
-For each patient, you can log:
+  After treatment concludes, the status is updated to “Completed.”
+  
+  You can add discharge summaries or final notes.
 
-Prescriptions (e.g., medications like “Paracetamol 650”)
+-> Financial Tracking
 
-Lab test results
+  Every patient’s expenses are logged, including treatment charges, reimbursements, and other related costs.
+  
+  Expense data is automatically linked to the patient’s profile.
 
-Imaging files and reports (e.g., MRIs)
+-> Form Management & Data Storage
 
-Treatment Completion & Notes
+  Custom forms collect and organize diverse data.
+  
+  Everything is stored in a centralized Data Hub module.
 
-After treatment concludes, the status is updated to “Completed.”
+-> Feedback via Zoho Desk Integration
 
-You can add discharge summaries or final notes.
+  We’ve integrated Zoho Desk to collect patient feedback.
+  
+  After the appointment or treatment, patients can provide feedback through email.
+  
+  These emails automatically create support tickets in Zoho Desk, which can be reviewed and addressed by the hospital team to improve service quality and resolve concerns promptly.
 
-Financial Tracking
+-> Impact & Benefits Centralized patient and operational data
 
-Every patient’s expenses are logged, including treatment charges, reimbursements, and other related costs.
-
-Expense data is automatically linked to the patient’s profile.
-
-Form Management & Data Storage
-
-Custom forms collect and organize diverse data.
-
-Everything is stored in a centralized Data Hub module.
-
-Impact & Benefits Centralized patient and operational data
-
-Automated lead generation and appointment workflows
-
-Seamless tracking of medical and financial information
-
-Enhanced communication between patients, doctors, and administrative staff
-
-This platform is ideal for government hospitals aiming to modernize their data management and improve service efficiency.
-
-Here is the video link: https://www.loom.com/share/045a52f9d8db4373bdaba6d2292ad609?sid=ccd9cca8-7cad-49f9-9b7c-89d857ad0b3f
+  Automated lead generation and appointment workflows
+  
+  Seamless tracking of medical and financial information
+  
+  Enhanced communication between patients, doctors, and administrative staff
+  
+  This platform is ideal for government hospitals aiming to modernize their data management and improve service efficiency.
+  
+  Here is the video link: https: www.loom.com/share/045a52f9d8db4373bdaba6d2292ad609?sid=ccd9cca8-7cad-49f9-9b7c-89d857ad0b3f
 
 # Welcome to your Lovable part
 
