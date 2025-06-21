@@ -1,11 +1,12 @@
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
-import { Phone, MapPin, Clock, Star, Heart, Shield, Award, Globe } from "lucide-react";
+import { Phone, MapPin, Clock, Star, Heart, Shield, Award, Globe, Menu, X } from "lucide-react";
 import { useState } from "react";
 
 const Index = () => {
   const [currentLanguage, setCurrentLanguage] = useState<string>("en");
+  const [mobileMenuOpen, setMobileMenuOpen] = useState<boolean>(false);
 
   const translations = {
     en: {
@@ -396,68 +397,113 @@ const Index = () => {
     setCurrentLanguage(language);
   };
 
+  const toggleMobileMenu = () => {
+    setMobileMenuOpen(!mobileMenuOpen);
+  };
+
   return (
     <div className="min-h-screen bg-gradient-to-br from-purple-50 via-blue-50 via-pink-50 to-orange-50">
       {/* Header */}
       <header className="bg-white/95 backdrop-blur-md shadow-lg sticky top-0 z-50 border-b-2 border-gradient-to-r from-purple-400 to-pink-400">
-        <div className="container mx-auto px-4 py-4">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-3 sm:py-4">
           <div className="flex justify-between items-center">
-            <div className="flex items-center space-x-3">
-              <div className="w-14 h-14 bg-gradient-to-br from-purple-600 via-blue-600 to-teal-600 rounded-full flex items-center justify-center shadow-lg">
-                <Heart className="text-white w-8 h-8" />
+            <div className="flex items-center space-x-2 sm:space-x-3">
+              <div className="w-10 h-10 sm:w-12 sm:h-12 lg:w-14 lg:h-14 bg-gradient-to-br from-purple-600 via-blue-600 to-teal-600 rounded-full flex items-center justify-center shadow-lg">
+                <Heart className="text-white w-5 h-5 sm:w-6 sm:h-6 lg:w-8 lg:h-8" />
               </div>
-              <div>
-                <h1 className="text-3xl font-bold bg-gradient-to-r from-purple-600 to-blue-600 bg-clip-text text-transparent">{t.hospitalName}</h1>
-                <p className="text-sm text-gray-600 font-medium">{t.tagline}</p>
+              <div className="min-w-0">
+                <h1 className="text-lg sm:text-xl lg:text-3xl font-bold bg-gradient-to-r from-purple-600 to-blue-600 bg-clip-text text-transparent truncate">{t.hospitalName}</h1>
+                <p className="text-xs sm:text-sm text-gray-600 font-medium hidden sm:block">{t.tagline}</p>
               </div>
             </div>
-            <div className="flex items-center space-x-6">
-              <nav className="hidden md:flex space-x-8">
-                <a href="#home" className="text-gray-700 hover:text-purple-600 transition-colors font-semibold hover:scale-105 transform duration-200">{t.nav.home}</a>
-                <a href="#booking" className="text-gray-700 hover:text-pink-600 transition-colors font-semibold hover:scale-105 transform duration-200">{t.nav.booking}</a>
-                <a href="#contact" className="text-gray-700 hover:text-teal-600 transition-colors font-semibold hover:scale-105 transform duration-200">{t.nav.contact}</a>
+            
+            <div className="flex items-center space-x-2 sm:space-x-4 lg:space-x-6">
+              {/* Desktop Navigation */}
+              <nav className="hidden lg:flex space-x-6 xl:space-x-8">
+                <a href="#home" className="text-gray-700 hover:text-purple-600 transition-colors font-semibold hover:scale-105 transform duration-200 text-base xl:text-lg">{t.nav.home}</a>
+                <a href="#booking" className="text-gray-700 hover:text-pink-600 transition-colors font-semibold hover:scale-105 transform duration-200 text-base xl:text-lg">{t.nav.booking}</a>
+                <a href="#contact" className="text-gray-700 hover:text-teal-600 transition-colors font-semibold hover:scale-105 transform duration-200 text-base xl:text-lg">{t.nav.contact}</a>
               </nav>
+
               {/* Language Selector */}
-              <div className="flex items-center space-x-2">
-                <Globe className="w-5 h-5 text-gray-600" />
+              <div className="flex items-center space-x-1 sm:space-x-2">
+                <Globe className="w-4 h-4 sm:w-5 sm:h-5 text-gray-600" />
                 <Select value={currentLanguage} onValueChange={handleLanguageChange}>
-                  <SelectTrigger className="w-32 h-10 text-base font-medium border-2 border-purple-200 hover:border-purple-400 focus:border-purple-500 bg-white/90">
-                    <SelectValue placeholder="Language" />
+                  <SelectTrigger className="w-20 sm:w-24 lg:w-32 h-8 sm:h-10 text-sm sm:text-base font-medium border-2 border-purple-200 hover:border-purple-400 focus:border-purple-500 bg-white/90">
+                    <SelectValue placeholder="Lang" />
                   </SelectTrigger>
                   <SelectContent className="bg-white border-2 border-purple-200 shadow-xl z-[60]">
-                    <SelectItem value="en" className="text-base py-3 hover:bg-purple-50 focus:bg-purple-100">English</SelectItem>
-                    <SelectItem value="te" className="text-base py-3 hover:bg-purple-50 focus:bg-purple-100 font-noto">తెలుగు</SelectItem>
-                    <SelectItem value="hi" className="text-base py-3 hover:bg-purple-50 focus:bg-purple-100 font-noto">हिंदी</SelectItem>
-                    <SelectItem value="ur" className="text-base py-3 hover:bg-purple-50 focus:bg-purple-100 font-noto">اردو</SelectItem>
+                    <SelectItem value="en" className="text-sm sm:text-base py-2 sm:py-3 hover:bg-purple-50 focus:bg-purple-100">English</SelectItem>
+                    <SelectItem value="te" className="text-sm sm:text-base py-2 sm:py-3 hover:bg-purple-50 focus:bg-purple-100 font-noto">తెలుగు</SelectItem>
+                    <SelectItem value="hi" className="text-sm sm:text-base py-2 sm:py-3 hover:bg-purple-50 focus:bg-purple-100 font-noto">हिंदी</SelectItem>
+                    <SelectItem value="ur" className="text-sm sm:text-base py-2 sm:py-3 hover:bg-purple-50 focus:bg-purple-100 font-noto">اردو</SelectItem>
                   </SelectContent>
                 </Select>
               </div>
+
+              {/* Mobile Menu Button */}
+              <button
+                onClick={toggleMobileMenu}
+                className="lg:hidden p-2 rounded-lg hover:bg-purple-100 transition-colors focus:outline-none focus:ring-2 focus:ring-purple-500"
+                aria-label="Toggle mobile menu"
+              >
+                {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+              </button>
             </div>
           </div>
+
+          {/* Mobile Navigation */}
+          {mobileMenuOpen && (
+            <div className="lg:hidden mt-4 pb-4 border-t border-purple-200 pt-4">
+              <nav className="flex flex-col space-y-3">
+                <a 
+                  href="#home" 
+                  className="text-gray-700 hover:text-purple-600 transition-colors font-semibold text-lg py-2 px-4 rounded-lg hover:bg-purple-50"
+                  onClick={() => setMobileMenuOpen(false)}
+                >
+                  {t.nav.home}
+                </a>
+                <a 
+                  href="#booking" 
+                  className="text-gray-700 hover:text-pink-600 transition-colors font-semibold text-lg py-2 px-4 rounded-lg hover:bg-pink-50"
+                  onClick={() => setMobileMenuOpen(false)}
+                >
+                  {t.nav.booking}
+                </a>
+                <a 
+                  href="#contact" 
+                  className="text-gray-700 hover:text-teal-600 transition-colors font-semibold text-lg py-2 px-4 rounded-lg hover:bg-teal-50"
+                  onClick={() => setMobileMenuOpen(false)}
+                >
+                  {t.nav.contact}
+                </a>
+              </nav>
+            </div>
+          )}
         </div>
       </header>
 
       {/* Hero Section */}
-      <section id="home" className="relative py-24 overflow-hidden">
+      <section id="home" className="relative py-12 sm:py-16 lg:py-24 overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-r from-purple-600/15 via-blue-600/15 to-teal-600/15"></div>
-        <div className="absolute top-10 left-10 w-24 h-24 bg-gradient-to-br from-purple-400 to-pink-400 rounded-full animate-pulse opacity-40"></div>
-        <div className="absolute top-32 right-20 w-20 h-20 bg-gradient-to-br from-blue-400 to-teal-400 rounded-full animate-pulse opacity-40 animation-delay-1000"></div>
-        <div className="absolute bottom-20 left-1/4 w-16 h-16 bg-gradient-to-br from-orange-400 to-yellow-400 rounded-full animate-pulse opacity-40 animation-delay-2000"></div>
-        <div className="absolute top-1/2 right-1/4 w-12 h-12 bg-gradient-to-br from-pink-400 to-red-400 rounded-full animate-pulse opacity-30"></div>
+        <div className="absolute top-5 left-5 sm:top-10 sm:left-10 w-16 h-16 sm:w-20 sm:h-20 lg:w-24 lg:h-24 bg-gradient-to-br from-purple-400 to-pink-400 rounded-full animate-pulse opacity-40"></div>
+        <div className="absolute top-20 right-10 sm:top-32 sm:right-20 w-12 h-12 sm:w-16 sm:h-16 lg:w-20 lg:h-20 bg-gradient-to-br from-blue-400 to-teal-400 rounded-full animate-pulse opacity-40 animation-delay-1000"></div>
+        <div className="absolute bottom-10 left-1/4 w-8 h-8 sm:w-12 sm:h-12 lg:w-16 lg:h-16 bg-gradient-to-br from-orange-400 to-yellow-400 rounded-full animate-pulse opacity-40 animation-delay-2000"></div>
+        <div className="absolute top-1/2 right-1/4 w-6 h-6 sm:w-8 sm:h-8 lg:w-12 lg:h-12 bg-gradient-to-br from-pink-400 to-red-400 rounded-full animate-pulse opacity-30"></div>
         
-        <div className="container mx-auto px-4 text-center relative z-10">
-          <h2 className="text-6xl md:text-7xl font-bold mb-6 bg-gradient-to-r from-purple-600 via-blue-600 to-teal-600 bg-clip-text text-transparent animate-float">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold mb-4 sm:mb-6 bg-gradient-to-r from-purple-600 via-blue-600 to-teal-600 bg-clip-text text-transparent animate-float leading-tight">
             {t.hero.title}
           </h2>
-          <h3 className="text-3xl md:text-4xl text-gray-700 mb-8 font-semibold">
+          <h3 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl text-gray-700 mb-6 sm:mb-8 font-semibold">
             {t.hero.subtitle}
           </h3>
-          <p className="text-xl text-gray-600 mb-12 max-w-3xl mx-auto leading-relaxed">
+          <p className="text-base sm:text-lg lg:text-xl text-gray-600 mb-8 sm:mb-12 max-w-4xl mx-auto leading-relaxed px-4">
             {t.hero.description}
           </p>
           <Button 
             size="lg" 
-            className="bg-gradient-to-r from-purple-500 via-pink-500 to-orange-500 hover:from-purple-600 hover:via-pink-600 hover:to-orange-600 text-white px-12 py-6 text-xl font-bold rounded-full shadow-2xl hover:shadow-3xl transition-all duration-300 transform hover:scale-110 hover:-translate-y-1"
+            className="bg-gradient-to-r from-purple-500 via-pink-500 to-orange-500 hover:from-purple-600 hover:via-pink-600 hover:to-orange-600 text-white px-6 sm:px-8 lg:px-12 py-4 sm:py-5 lg:py-6 text-base sm:text-lg lg:text-xl font-bold rounded-full shadow-2xl hover:shadow-3xl transition-all duration-300 transform hover:scale-105 hover:-translate-y-1 w-full sm:w-auto max-w-md mx-auto"
             onClick={() => document.getElementById('booking')?.scrollIntoView({ behavior: 'smooth' })}
           >
             {t.hero.button}
@@ -466,65 +512,65 @@ const Index = () => {
       </section>
 
       {/* Hospital Information */}
-      <section id="contact" className="py-20 bg-gradient-to-br from-white via-purple-50 to-blue-50">
-        <div className="container mx-auto px-4">
-          <div className="text-center mb-16">
-            <h2 className="text-5xl font-bold bg-gradient-to-r from-purple-600 to-blue-600 bg-clip-text text-transparent mb-6">{t.hospitalInfo.title}</h2>
-            <p className="text-gray-600 text-xl">{t.hospitalInfo.subtitle}</p>
+      <section id="contact" className="py-12 sm:py-16 lg:py-20 bg-gradient-to-br from-white via-purple-50 to-blue-50">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12 sm:mb-16">
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold bg-gradient-to-r from-purple-600 to-blue-600 bg-clip-text text-transparent mb-4 sm:mb-6">{t.hospitalInfo.title}</h2>
+            <p className="text-gray-600 text-lg sm:text-xl px-4">{t.hospitalInfo.subtitle}</p>
           </div>
           
-          <div className="grid md:grid-cols-3 gap-10">
-            <Card className="text-center hover:shadow-2xl transition-all duration-300 transform hover:scale-105 hover:-translate-y-2 bg-gradient-to-br from-purple-50 to-blue-50 border-2 border-purple-200">
-              <CardHeader>
-                <div className="w-20 h-20 bg-gradient-to-br from-purple-500 to-blue-500 rounded-full flex items-center justify-center mx-auto mb-6 shadow-lg">
-                  <MapPin className="w-10 h-10 text-white" />
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 lg:gap-10">
+            <Card className="text-center hover:shadow-2xl transition-all duration-300 transform hover:scale-105 hover:-translate-y-2 bg-gradient-to-br from-purple-50 to-blue-50 border-2 border-purple-200 col-span-1 lg:col-span-1">
+              <CardHeader className="pb-4">
+                <div className="w-16 h-16 sm:w-18 sm:h-18 lg:w-20 lg:h-20 bg-gradient-to-br from-purple-500 to-blue-500 rounded-full flex items-center justify-center mx-auto mb-4 sm:mb-6 shadow-lg">
+                  <MapPin className="w-8 h-8 sm:w-9 sm:h-9 lg:w-10 lg:h-10 text-white" />
                 </div>
-                <CardTitle className="text-2xl text-purple-700">{t.hospitalInfo.location.title}</CardTitle>
+                <CardTitle className="text-xl sm:text-2xl text-purple-700">{t.hospitalInfo.location.title}</CardTitle>
               </CardHeader>
-              <CardContent>
-                <div className="text-gray-700 text-lg leading-relaxed space-y-2">
+              <CardContent className="px-4">
+                <div className="text-gray-700 text-base sm:text-lg leading-relaxed space-y-2">
                   {t.hospitalInfo.location.hospitals.map((hospital, index) => (
-                    <p key={index} className="font-medium">{hospital}</p>
+                    <p key={index} className="font-medium text-sm sm:text-base">{hospital}</p>
                   ))}
                 </div>
               </CardContent>
             </Card>
 
-            <Card className="text-center hover:shadow-2xl transition-all duration-300 transform hover:scale-105 hover:-translate-y-2 bg-gradient-to-br from-teal-50 to-green-50 border-2 border-teal-200">
-              <CardHeader>
-                <div className="w-20 h-20 bg-gradient-to-br from-teal-500 to-green-500 rounded-full flex items-center justify-center mx-auto mb-6 shadow-lg">
-                  <Phone className="w-10 h-10 text-white" />
+            <Card className="text-center hover:shadow-2xl transition-all duration-300 transform hover:scale-105 hover:-translate-y-2 bg-gradient-to-br from-teal-50 to-green-50 border-2 border-teal-200 col-span-1">
+              <CardHeader className="pb-4">
+                <div className="w-16 h-16 sm:w-18 sm:h-18 lg:w-20 lg:h-20 bg-gradient-to-br from-teal-500 to-green-500 rounded-full flex items-center justify-center mx-auto mb-4 sm:mb-6 shadow-lg">
+                  <Phone className="w-8 h-8 sm:w-9 sm:h-9 lg:w-10 lg:h-10 text-white" />
                 </div>
-                <CardTitle className="text-2xl text-teal-700">{t.hospitalInfo.contact.title}</CardTitle>
+                <CardTitle className="text-xl sm:text-2xl text-teal-700">{t.hospitalInfo.contact.title}</CardTitle>
               </CardHeader>
-              <CardContent className="space-y-3">
-                <p className="text-gray-700 text-lg">
+              <CardContent className="space-y-3 px-4">
+                <p className="text-gray-700 text-base sm:text-lg break-words">
                   <strong>{t.hospitalInfo.contact.phone}</strong> +1 (123) 456-7890
                 </p>
-                <p className="text-gray-700 text-lg">
+                <p className="text-gray-700 text-base sm:text-lg break-words">
                   <strong>{t.hospitalInfo.contact.email}</strong> info@telanganagovthospitals.in
                 </p>
-                <p className="text-red-600 font-bold text-lg pulse-emergency">
+                <p className="text-red-600 font-bold text-base sm:text-lg pulse-emergency">
                   <strong>{t.hospitalInfo.contact.emergency}</strong>
                 </p>
               </CardContent>
             </Card>
 
-            <Card className="text-center hover:shadow-2xl transition-all duration-300 transform hover:scale-105 hover:-translate-y-2 bg-gradient-to-br from-orange-50 to-yellow-50 border-2 border-orange-200">
-              <CardHeader>
-                <div className="w-20 h-20 bg-gradient-to-br from-orange-500 to-yellow-500 rounded-full flex items-center justify-center mx-auto mb-6 shadow-lg">
-                  <Clock className="w-10 h-10 text-white" />
+            <Card className="text-center hover:shadow-2xl transition-all duration-300 transform hover:scale-105 hover:-translate-y-2 bg-gradient-to-br from-orange-50 to-yellow-50 border-2 border-orange-200 col-span-1 md:col-span-2 lg:col-span-1">
+              <CardHeader className="pb-4">
+                <div className="w-16 h-16 sm:w-18 sm:h-18 lg:w-20 lg:h-20 bg-gradient-to-br from-orange-500 to-yellow-500 rounded-full flex items-center justify-center mx-auto mb-4 sm:mb-6 shadow-lg">
+                  <Clock className="w-8 h-8 sm:w-9 sm:h-9 lg:w-10 lg:h-10 text-white" />
                 </div>
-                <CardTitle className="text-2xl text-orange-700">{t.hospitalInfo.hours.title}</CardTitle>
+                <CardTitle className="text-xl sm:text-2xl text-orange-700">{t.hospitalInfo.hours.title}</CardTitle>
               </CardHeader>
-              <CardContent className="space-y-3">
-                <p className="text-gray-700 text-lg">
+              <CardContent className="space-y-3 px-4">
+                <p className="text-gray-700 text-base sm:text-lg">
                   <strong>{t.hospitalInfo.hours.weekdays}</strong>
                 </p>
-                <p className="text-gray-700 text-lg">
+                <p className="text-gray-700 text-base sm:text-lg">
                   <strong>{t.hospitalInfo.hours.saturday}</strong>
                 </p>
-                <p className="text-gray-700 text-lg">
+                <p className="text-gray-700 text-base sm:text-lg">
                   <strong>{t.hospitalInfo.hours.sunday}</strong>
                 </p>
               </CardContent>
@@ -534,26 +580,26 @@ const Index = () => {
       </section>
 
       {/* Appointment Booking Section */}
-      <section id="booking" className="py-20 bg-gradient-to-br from-white via-pink-50 to-purple-50">
-        <div className="container mx-auto px-4">
-          <div className="text-center mb-16">
-            <h2 className="text-5xl font-bold bg-gradient-to-r from-pink-600 via-purple-600 to-blue-600 bg-clip-text text-transparent mb-6">{t.booking.title}</h2>
-            <p className="text-gray-600 text-xl">{t.booking.subtitle}</p>
+      <section id="booking" className="py-12 sm:py-16 lg:py-20 bg-gradient-to-br from-white via-pink-50 to-purple-50">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12 sm:mb-16">
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold bg-gradient-to-r from-pink-600 via-purple-600 to-blue-600 bg-clip-text text-transparent mb-4 sm:mb-6">{t.booking.title}</h2>
+            <p className="text-gray-600 text-lg sm:text-xl px-4">{t.booking.subtitle}</p>
           </div>
           
-          <div className="max-w-6xl mx-auto">
+          <div className="max-w-7xl mx-auto">
             <Card className="shadow-2xl border-4 border-gradient-to-r from-purple-200 to-pink-200 bg-gradient-to-br from-white to-purple-50">
-              <CardHeader className="bg-gradient-to-r from-purple-100 via-blue-100 to-pink-100 rounded-t-lg">
-                <CardTitle className="text-3xl text-center bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent">
+              <CardHeader className="bg-gradient-to-r from-purple-100 via-blue-100 to-pink-100 rounded-t-lg px-4 sm:px-6 lg:px-8 py-6">
+                <CardTitle className="text-2xl sm:text-3xl text-center bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent">
                   {t.booking.formTitle}
                 </CardTitle>
-                <CardDescription className="text-center text-gray-700 text-lg">
+                <CardDescription className="text-center text-gray-700 text-base sm:text-lg px-4">
                   {t.booking.formSubtitle}
                 </CardDescription>
               </CardHeader>
-              <CardContent className="p-8">
-                <div className="bg-gradient-to-br from-blue-50 to-purple-50 rounded-xl p-8 shadow-inner">
-                  <div className="w-full h-[800px] rounded-lg overflow-hidden shadow-2xl border-4 border-gradient-to-r from-purple-300 to-pink-300">
+              <CardContent className="p-4 sm:p-6 lg:p-8">
+                <div className="bg-gradient-to-br from-blue-50 to-purple-50 rounded-xl p-4 sm:p-6 lg:p-8 shadow-inner">
+                  <div className="w-full h-[600px] sm:h-[700px] lg:h-[800px] rounded-lg overflow-hidden shadow-2xl border-4 border-gradient-to-r from-purple-300 to-pink-300">
                     <iframe
                       src="https://forms.zohopublic.in/hackatho1/form/AppointmentBookingForm/formperma/dbT-VwRZ7DqNoMpFLv20fyOdOjdqGUd1qvIbhfRCK3o"
                       width="100%"
@@ -571,24 +617,24 @@ const Index = () => {
       </section>
 
       {/* Testimonials */}
-      <section className="py-20 bg-gradient-to-br from-yellow-50 via-orange-50 to-red-50">
-        <div className="container mx-auto px-4">
-          <div className="text-center mb-16">
-            <h2 className="text-5xl font-bold bg-gradient-to-r from-orange-600 via-red-600 to-pink-600 bg-clip-text text-transparent mb-6">{t.testimonials.title}</h2>
-            <p className="text-gray-600 text-xl">{t.testimonials.subtitle}</p>
+      <section className="py-12 sm:py-16 lg:py-20 bg-gradient-to-br from-yellow-50 via-orange-50 to-red-50">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12 sm:mb-16">
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold bg-gradient-to-r from-orange-600 via-red-600 to-pink-600 bg-clip-text text-transparent mb-4 sm:mb-6">{t.testimonials.title}</h2>
+            <p className="text-gray-600 text-lg sm:text-xl px-4">{t.testimonials.subtitle}</p>
           </div>
           
-          <div className="grid md:grid-cols-3 gap-10">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 lg:gap-10">
             {testimonials.map((testimonial, index) => (
               <Card key={index} className="hover:shadow-2xl transition-all duration-300 transform hover:scale-105 hover:-translate-y-2 bg-gradient-to-br from-white to-orange-50 border-2 border-orange-200">
-                <CardContent className="p-8">
-                  <div className="flex items-center mb-6">
+                <CardContent className="p-6 sm:p-8">
+                  <div className="flex items-center mb-4 sm:mb-6">
                     {[...Array(testimonial.rating)].map((_, i) => (
-                      <Star key={i} className="w-6 h-6 fill-yellow-400 text-yellow-400" />
+                      <Star key={i} className="w-5 h-5 sm:w-6 sm:h-6 fill-yellow-400 text-yellow-400" />
                     ))}
                   </div>
-                  <p className="text-gray-700 mb-6 italic text-lg leading-relaxed">"{t.testimonials.reviews[index].review}"</p>
-                  <p className="font-bold text-gray-800 text-lg">- {t.testimonials.reviews[index].name} 😊</p>
+                  <p className="text-gray-700 mb-4 sm:mb-6 italic text-base sm:text-lg leading-relaxed">"{t.testimonials.reviews[index].review}"</p>
+                  <p className="font-bold text-gray-800 text-base sm:text-lg">- {t.testimonials.reviews[index].name} 😊</p>
                 </CardContent>
               </Card>
             ))}
@@ -597,25 +643,25 @@ const Index = () => {
       </section>
 
       {/* Trust Signals */}
-      <section className="py-16 bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600">
-        <div className="container mx-auto px-4">
+      <section className="py-12 sm:py-16 bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
-            <h3 className="text-3xl font-bold text-white mb-8">{t.trust.title}</h3>
-            <div className="grid md:grid-cols-3 gap-8">
+            <h3 className="text-2xl sm:text-3xl font-bold text-white mb-6 sm:mb-8 px-4">{t.trust.title}</h3>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8">
               <div className="text-center text-white">
-                <Shield className="w-16 h-16 mx-auto mb-4 text-yellow-300" />
-                <h4 className="text-xl font-bold mb-2">{t.trust.excellence.title}</h4>
-                <p className="text-blue-100">{t.trust.excellence.subtitle}</p>
+                <Shield className="w-12 h-12 sm:w-14 sm:h-14 lg:w-16 lg:h-16 mx-auto mb-3 sm:mb-4 text-yellow-300" />
+                <h4 className="text-lg sm:text-xl font-bold mb-2">{t.trust.excellence.title}</h4>
+                <p className="text-blue-100 text-sm sm:text-base px-2">{t.trust.excellence.subtitle}</p>
               </div>
               <div className="text-center text-white">
-                <Award className="w-16 h-16 mx-auto mb-4 text-yellow-300" />
-                <h4 className="text-xl font-bold mb-2">{t.trust.award.title}</h4>
-                <p className="text-blue-100">{t.trust.award.subtitle}</p>
+                <Award className="w-12 h-12 sm:w-14 sm:h-14 lg:w-16 lg:h-16 mx-auto mb-3 sm:mb-4 text-yellow-300" />
+                <h4 className="text-lg sm:text-xl font-bold mb-2">{t.trust.award.title}</h4>
+                <p className="text-blue-100 text-sm sm:text-base px-2">{t.trust.award.subtitle}</p>
               </div>
               <div className="text-center text-white">
-                <Heart className="w-16 h-16 mx-auto mb-4 text-yellow-300" />
-                <h4 className="text-xl font-bold mb-2">{t.trust.care.title}</h4>
-                <p className="text-blue-100">{t.trust.care.subtitle}</p>
+                <Heart className="w-12 h-12 sm:w-14 sm:h-14 lg:w-16 lg:h-16 mx-auto mb-3 sm:mb-4 text-yellow-300" />
+                <h4 className="text-lg sm:text-xl font-bold mb-2">{t.trust.care.title}</h4>
+                <p className="text-blue-100 text-sm sm:text-base px-2">{t.trust.care.subtitle}</p>
               </div>
             </div>
           </div>
@@ -623,33 +669,33 @@ const Index = () => {
       </section>
 
       {/* Footer */}
-      <footer className="bg-gradient-to-br from-gray-800 via-gray-900 to-black text-white py-16">
-        <div className="container mx-auto px-4">
-          <div className="grid md:grid-cols-4 gap-10">
-            <div>
-              <div className="flex items-center space-x-3 mb-6">
-                <div className="w-12 h-12 bg-gradient-to-br from-purple-600 via-blue-600 to-teal-600 rounded-full flex items-center justify-center shadow-lg">
-                  <Heart className="text-white font-bold w-6 h-6" />
+      <footer className="bg-gradient-to-br from-gray-800 via-gray-900 to-black text-white py-12 sm:py-16">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 sm:gap-10">
+            <div className="md:col-span-2 lg:col-span-1">
+              <div className="flex items-center space-x-2 sm:space-x-3 mb-4 sm:mb-6">
+                <div className="w-10 h-10 sm:w-12 sm:h-12 bg-gradient-to-br from-purple-600 via-blue-600 to-teal-600 rounded-full flex items-center justify-center shadow-lg">
+                  <Heart className="text-white font-bold w-5 h-5 sm:w-6 sm:h-6" />
                 </div>
-                <span className="text-2xl font-bold bg-gradient-to-r from-purple-400 to-blue-400 bg-clip-text text-transparent">{t.hospitalName}</span>
+                <span className="text-lg sm:text-xl lg:text-2xl font-bold bg-gradient-to-r from-purple-400 to-blue-400 bg-clip-text text-transparent break-words">{t.hospitalName}</span>
               </div>
-              <p className="text-gray-300 text-lg leading-relaxed">
+              <p className="text-gray-300 text-base sm:text-lg leading-relaxed">
                 {t.footer.description}
               </p>
             </div>
             
             <div>
-              <h4 className="text-xl font-bold mb-6 text-purple-400">{t.footer.quickLinks}</h4>
-              <ul className="space-y-3 text-gray-300">
-                <li><a href="#home" className="hover:text-purple-400 transition-colors text-lg">🏠 {t.nav.home}</a></li>
-                <li><a href="#booking" className="hover:text-pink-400 transition-colors text-lg">📅 {t.nav.booking}</a></li>
-                <li><a href="#contact" className="hover:text-teal-400 transition-colors text-lg">📞 {t.nav.contact}</a></li>
+              <h4 className="text-lg sm:text-xl font-bold mb-4 sm:mb-6 text-purple-400">{t.footer.quickLinks}</h4>
+              <ul className="space-y-2 sm:space-y-3 text-gray-300">
+                <li><a href="#home" className="hover:text-purple-400 transition-colors text-base sm:text-lg">🏠 {t.nav.home}</a></li>
+                <li><a href="#booking" className="hover:text-pink-400 transition-colors text-base sm:text-lg">📅 {t.nav.booking}</a></li>
+                <li><a href="#contact" className="hover:text-teal-400 transition-colors text-base sm:text-lg">📞 {t.nav.contact}</a></li>
               </ul>
             </div>
             
             <div>
-              <h4 className="text-xl font-bold mb-6 text-blue-400">{t.footer.services}</h4>
-              <ul className="space-y-3 text-gray-300 text-lg">
+              <h4 className="text-lg sm:text-xl font-bold mb-4 sm:mb-6 text-blue-400">{t.footer.services}</h4>
+              <ul className="space-y-2 sm:space-y-3 text-gray-300 text-base sm:text-lg">
                 <li>{t.footer.servicesList.emergency}</li>
                 <li>{t.footer.servicesList.cardiology}</li>
                 <li>{t.footer.servicesList.neurology}</li>
@@ -658,18 +704,18 @@ const Index = () => {
             </div>
             
             <div>
-              <h4 className="text-xl font-bold mb-6 text-teal-400">{t.footer.contactInfo}</h4>
-              <div className="space-y-3 text-gray-300 text-lg">
+              <h4 className="text-lg sm:text-xl font-bold mb-4 sm:mb-6 text-teal-400">{t.footer.contactInfo}</h4>
+              <div className="space-y-2 sm:space-y-3 text-gray-300 text-base sm:text-lg">
                 <p>📍 Multiple Locations in Telangana</p>
                 <p>🏙️ Hyderabad & Secunderabad</p>
-                <p>📞 Phone: +91 (040) 123-4567</p>
-                <p>📧 Email: info@telanganagovthospitals.in</p>
+                <p className="break-words">📞 Phone: +91 (040) 123-4567</p>
+                <p className="break-words">📧 Email: info@telanganagovthospitals.in</p>
               </div>
             </div>
           </div>
           
-          <div className="border-t border-gray-700 mt-12 pt-8 text-center text-gray-300">
-            <p className="text-lg">{t.footer.copyright}</p>
+          <div className="border-t border-gray-700 mt-8 sm:mt-12 pt-6 sm:pt-8 text-center text-gray-300">
+            <p className="text-base sm:text-lg px-4 break-words">{t.footer.copyright}</p>
           </div>
         </div>
       </footer>
