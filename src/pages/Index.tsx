@@ -59,15 +59,15 @@ const Index = () => {
         reviews: [
           {
             review: "Excellent care and very professional staff. Dr. Smith was thorough and caring.",
-            name: "Maria Rodriguez"
+            name: "Priya Sharma"
           },
           {
             review: "Quick appointment booking and great facilities. Highly recommend!",
-            name: "John Williams"
+            name: "Rajesh Kumar"
           },
           {
             review: "The online booking system is so convenient. Thank you for the excellent service!",
-            name: "Sarah Chen"
+            name: "Anjali Reddy"
           }
         ]
       },
@@ -151,15 +151,15 @@ const Index = () => {
         reviews: [
           {
             review: "అద్భుతమైన సంరక్షణ మరియు చాలా వృత్తిపరమైన సిబ్బంది. డాక్టర్ చాలా శ్రద్ధగా చూసుకున్నారు.",
-            name: "మరియా రోడ్రిగ్జ్"
+            name: "ప్రియా శర్మ"
           },
           {
             review: "త్వరగా అపాయింట్‌మెంట్ బుకింగ్ మరియు గొప్ప సౌకర్యాలు. చాలా సిఫార్సు చేస్తాను!",
-            name: "జాన్ విలియమ్స్"
+            name: "రాజేష్ కుమార్"
           },
           {
             review: "ఆన్‌లైన్ బుకింగ్ సిస్టమ్ చాలా సౌకర్యవంతంగా ఉంది. అద్భుతమైన సేవకు ధన్యవాదాలు!",
-            name: "సారా చెన్"
+            name: "అంజలి రెడ్డి"
           }
         ]
       },
@@ -243,15 +243,15 @@ const Index = () => {
         reviews: [
           {
             review: "उत्कृष्ट देखभाल और बहुत पेशेवर कर्मचारी। डॉक्टर बहुत सावधान और देखभाल करने वाले थे।",
-            name: "मारिया रोड्रिगेज"
+            name: "प्रिया शर्मा"
           },
           {
             review: "त्वरित अपॉइंटमेंट बुकिंग और बेहतरीन सुविधाएं। अत्यधिक अनुशंसा करता हूं!",
-            name: "जॉन विलियम्स"
+            name: "राजेश कुमार"
           },
           {
             review: "ऑनलाइन बुकिंग सिस्टम बहुत सुविधाजनक है। उत्कृष्ट सेवा के लिए धन्यवाद!",
-            name: "सारा चेन"
+            name: "अंजलि रेड्डी"
           }
         ]
       },
@@ -335,15 +335,15 @@ const Index = () => {
         reviews: [
           {
             review: "بہترین دیکھ بھال اور بہت پیشہ ور عملہ۔ ڈاکٹر بہت محتاط اور خیال رکھنے والے تھے۔",
-            name: "ماریا روڈریگیز"
+            name: "پریا شرما"
           },
           {
             review: "فوری ملاقات بکنگ اور بہترین سہولات۔ انتہائی تجویز کرتا ہوں!",
-            name: "جان ولیمز"
+            name: "راجیش کمار"
           },
           {
             review: "آن لائن بکنگ سسٹم بہت آسان ہے۔ بہترین خدمات کے لیے شکریہ!",
-            name: "سارہ چن"
+            name: "انجلی ریڈی"
           }
         ]
       },
