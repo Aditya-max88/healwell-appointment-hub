@@ -1,9 +1,7 @@
-
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import { Badge } from "@/components/ui/badge";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
-import { Phone, Mail, MapPin, Clock, Star, Heart, Shield, Award, Globe } from "lucide-react";
+import { Phone, MapPin, Clock, Star, Heart, Shield, Award, Globe } from "lucide-react";
 import { useState } from "react";
 
 const Index = () => {
@@ -11,7 +9,7 @@ const Index = () => {
 
   const translations = {
     en: {
-      hospitalName: "HealWell Hospital",
+      hospitalName: "Government Hospitals of Telangana",
       tagline: "Your Health, Our Priority ✨",
       nav: {
         home: "Home",
@@ -28,8 +26,13 @@ const Index = () => {
         title: "Hospital Information",
         subtitle: "Get in touch with us for any medical needs 📞",
         location: {
-          title: "Our Location 📍",
-          address: "123 Wellness Lane<br />Health City, HC 456<br />United States 🇺🇸"
+          title: "Our Locations 📍",
+          hospitals: [
+            "1. Osmania General Hospital (Afzal Gunj)",
+            "2. Gandhi Hospital (Secunderabad)",
+            "3. Niloufer Hospital (Red Hills)",
+            "4. Sarojini Devi Eye Hospital (Mehdipatnam)"
+          ]
         },
         contact: {
           title: "Contact Us 📱",
@@ -69,14 +72,14 @@ const Index = () => {
         ]
       },
       trust: {
-        title: "Why Choose HealWell Hospital? 🌟",
+        title: "Why Choose Government Hospitals of Telangana? 🌟",
         excellence: {
           title: "Certified Excellence",
-          subtitle: "JCI Accredited Healthcare"
+          subtitle: "Government Accredited Healthcare"
         },
         award: {
           title: "Award Winning",
-          subtitle: "Best Hospital 2023"
+          subtitle: "Best Public Hospitals 2023"
         },
         care: {
           title: "Compassionate Care",
@@ -88,7 +91,7 @@ const Index = () => {
         quickLinks: "Quick Links",
         services: "Services",
         contactInfo: "Contact Info",
-        copyright: "© 2024 HealWell Hospital. All rights reserved. | Privacy Policy | Terms of Service ✨",
+        copyright: "© 2024 Government Hospitals of Telangana. All rights reserved. | Privacy Policy | Terms of Service ✨",
         servicesList: {
           emergency: "🚨 Emergency Care",
           cardiology: "❤️ Cardiology",
@@ -98,7 +101,7 @@ const Index = () => {
       }
     },
     te: {
-      hospitalName: "హీల్‌వెల్ హాస్పిటల్",
+      hospitalName: "తెలంగాణ ప్రభుత్వ ఆసుపత్రులు",
       tagline: "మీ ఆరోగ్యం, మా ప్రాధాన్యత ✨",
       nav: {
         home: "హోమ్",
@@ -112,11 +115,16 @@ const Index = () => {
         button: "🚀 ఇప్పుడే మీ అపాయింట్‌మెంట్ బుక్ చేయండి!"
       },
       hospitalInfo: {
-        title: "హాస్పిటల్ సమాచారం",
+        title: "ఆసుపత్రి సమాచారం",
         subtitle: "ఏదైనా వైద్య అవసరాల కోసం మాతో సంప్రదించండి 📞",
         location: {
-          title: "మా స్థానం 📍",
-          address: "123 వెల్నెస్ లేన్<br />హెల్త్ సిటీ, HC 456<br />యునైటెడ్ స్టేట్స్ 🇺🇸"
+          title: "మా స్థానాలు 📍",
+          hospitals: [
+            "1. ఉస్మానియా జనరల్ హాస్పిటల్ (అఫ్జల్ గంజ్)",
+            "2. గాంధీ హాస్పిటల్ (సికింద్రాబాద్)",
+            "3. నీలోఫర్ హాస్పిటల్ (రెడ్ హిల్స్)",
+            "4. సరోజినీ దేవి నేత్ర ఆసుపత్రి (మెహదీపట్నం)"
+          ]
         },
         contact: {
           title: "మాతో సంప్రదించండి 📱",
@@ -156,14 +164,14 @@ const Index = () => {
         ]
       },
       trust: {
-        title: "హీల్‌వెల్ హాస్పిటల్‌ను ఎందుకు ఎంచుకోవాలి? 🌟",
+        title: "తెలంగాణ ప్రభుత్వ ఆసుపత్రులను ఎందుకు ఎంచుకోవాలి? 🌟",
         excellence: {
           title: "ధృవీకృత శ్రేష్ఠత",
-          subtitle: "JCI గుర్తింపు పొందిన ఆరోగ్య సేవ"
+          subtitle: "ప్రభుత్వ గుర్తింపు పొందిన ఆరోగ్య సేవ"
         },
         award: {
           title: "అవార్డు గెలుచుకున్న",
-          subtitle: "ఉత్తమ హాస్పిటల్ 2023"
+          subtitle: "ఉత్తమ ప్రభుత్వ ఆసుపత్రులు 2023"
         },
         care: {
           title: "దయతో కూడిన సంరక్షణ",
@@ -175,7 +183,7 @@ const Index = () => {
         quickLinks: "త్వరిత లింక్‌లు",
         services: "సేవలు",
         contactInfo: "సంప్రదింపు సమాచారం",
-        copyright: "© 2024 హీల్‌వెల్ హాస్పిటల్. అన్ని హక్కులు రిజర్వ్ చేయబడ్డాయి. | గోప్యతా విధానం | సేవా నిబంధనలు ✨",
+        copyright: "© 2024 తెలంగాణ ప్రభుత్వ ఆసుపత్రులు. అన్ని హక్కులు రిజర్వ్ చేయబడ్డాయి. | గోప్యతా విధానం | సేవా నిబంధనలు ✨",
         servicesList: {
           emergency: "🚨 అత్యవసర సంరక్షణ",
           cardiology: "❤️ కార్డియాలజీ",
@@ -185,7 +193,7 @@ const Index = () => {
       }
     },
     hi: {
-      hospitalName: "हीलवेल अस्पताल",
+      hospitalName: "तेलंगाना सरकारी अस्पताल",
       tagline: "आपका स्वास्थ्य, हमारी प्राथमिकता ✨",
       nav: {
         home: "होम",
@@ -202,8 +210,13 @@ const Index = () => {
         title: "अस्पताल की जानकारी",
         subtitle: "किसी भी चिकित्सा आवश्यकता के लिए हमसे संपर्क करें 📞",
         location: {
-          title: "हमारा स्थान 📍",
-          address: "123 वेलनेस लेन<br />हेल्थ सिटी, HC 456<br />संयुक्त राज्य अमेरिका 🇺🇸"
+          title: "हमारे स्थान 📍",
+          hospitals: [
+            "1. उस्मानिया जनरल अस्पताल (अफजल गंज)",
+            "2. गांधी अस्पताल (सिकंदराबाद)",
+            "3. नीलोफर अस्पताल (रेड हिल्स)",
+            "4. सरोजिनी देवी नेत्र अस्पताल (मेहदीपटनम)"
+          ]
         },
         contact: {
           title: "हमसे संपर्क करें 📱",
@@ -243,14 +256,14 @@ const Index = () => {
         ]
       },
       trust: {
-        title: "हीलवेल अस्पताल क्यों चुनें? 🌟",
+        title: "तेलंगाना सरकारी अस्पताल क्यों चुनें? 🌟",
         excellence: {
           title: "प्रमाणित उत्कृष्टता",
-          subtitle: "JCI मान्यता प्राप्त स्वास्थ्य सेवा"
+          subtitle: "सरकारी मान्यता प्राप्त स्वास्थ्य सेवा"
         },
         award: {
           title: "पुरस्कार विजेता",
-          subtitle: "सर्वश्रेष्ठ अस्पताल 2023"
+          subtitle: "सर्वश्रेष्ठ सरकारी अस्पताल 2023"
         },
         care: {
           title: "दयालु देखभाल",
@@ -262,7 +275,7 @@ const Index = () => {
         quickLinks: "त्वरित लिंक",
         services: "सेवाएं",
         contactInfo: "संपर्क जानकारी",
-        copyright: "© 2024 हीलवेल अस्पताल। सभी अधिकार सुरक्षित। | गोपनीयता नीति | सेवा की शर्तें ✨",
+        copyright: "© 2024 तेलंगाना सरकारी अस्पताल। सभी अधिकार सुरक्षित। | गोपनीयता नीति | सेवा की शर्तें ✨",
         servicesList: {
           emergency: "🚨 आपातकालीन देखभाल",
           cardiology: "❤️ कार्डियोलॉजी",
@@ -272,7 +285,7 @@ const Index = () => {
       }
     },
     ur: {
-      hospitalName: "ہیل ویل ہسپتال",
+      hospitalName: "تلنگانہ سرکاری ہسپتال",
       tagline: "آپ کی صحت، ہماری ترجیح ✨",
       nav: {
         home: "ہوم",
@@ -289,8 +302,13 @@ const Index = () => {
         title: "ہسپتال کی معلومات",
         subtitle: "کسی بھی طبی ضرورت کے لیے ہم سے رابطہ کریں 📞",
         location: {
-          title: "ہمارا مقام 📍",
-          address: "123 ویلنیس لین<br />ہیلتھ سٹی، HC 456<br />ریاستہائے متحدہ امریکہ 🇺🇸"
+          title: "ہمارے مقامات 📍",
+          hospitals: [
+            "1. عثمانیہ جنرل ہسپتال (افضل گنج)",
+            "2. گاندھی ہسپتال (سکندرآباد)",
+            "3. نیلوفر ہسپتال (ریڈ ہلز)",
+            "4. سروجنی دیوی آنکھ کا ہسپتال (مہدی پٹنم)"
+          ]
         },
         contact: {
           title: "ہم سے رابطہ کریں 📱",
@@ -330,14 +348,14 @@ const Index = () => {
         ]
       },
       trust: {
-        title: "ہیل ویل ہسپتال کیوں منتخب کریں؟ 🌟",
+        title: "تلنگانہ سرکاری ہسپتال کیوں منتخب کریں؟ 🌟",
         excellence: {
           title: "تصدیق شدہ بہترین",
-          subtitle: "JCI تسلیم شدہ صحت کی دیکھ بھال"
+          subtitle: "سرکاری تسلیم شدہ صحت کی دیکھ بھال"
         },
         award: {
           title: "ایوارڈ یافتہ",
-          subtitle: "بہترین ہسپتال 2023"
+          subtitle: "بہترین سرکاری ہسپتال 2023"
         },
         care: {
           title: "ہمدردانہ دیکھ بھال",
@@ -349,7 +367,7 @@ const Index = () => {
         quickLinks: "فوری لنکس",
         services: "خدمات",
         contactInfo: "رابطہ کی معلومات",
-        copyright: "© 2024 ہیل ویل ہسپتال۔ تمام حقوق محفوظ ہیں۔ | رازداری کی پالیسی | خدمات کی شرائط ✨",
+        copyright: "© 2024 تلنگانہ سرکاری ہسپتال۔ تمام حقوق محفوظ ہیں۔ | رازداری کی پالیسی | خدمات کی شرائط ✨",
         servicesList: {
           emergency: "🚨 ایمرجنسی کیئر",
           cardiology: "❤️ کارڈیالوجی",
@@ -464,8 +482,11 @@ const Index = () => {
                 <CardTitle className="text-2xl text-purple-700">{t.hospitalInfo.location.title}</CardTitle>
               </CardHeader>
               <CardContent>
-                <p className="text-gray-700 text-lg leading-relaxed" dangerouslySetInnerHTML={{ __html: t.hospitalInfo.location.address }}>
-                </p>
+                <div className="text-gray-700 text-lg leading-relaxed space-y-2">
+                  {t.hospitalInfo.location.hospitals.map((hospital, index) => (
+                    <p key={index} className="font-medium">{hospital}</p>
+                  ))}
+                </div>
               </CardContent>
             </Card>
 
@@ -481,7 +502,7 @@ const Index = () => {
                   <strong>{t.hospitalInfo.contact.phone}</strong> +1 (123) 456-7890
                 </p>
                 <p className="text-gray-700 text-lg">
-                  <strong>{t.hospitalInfo.contact.email}</strong> info@healwellhospital.com
+                  <strong>{t.hospitalInfo.contact.email}</strong> info@telanganagovthospitals.in
                 </p>
                 <p className="text-red-600 font-bold text-lg pulse-emergency">
                   <strong>{t.hospitalInfo.contact.emergency}</strong>
@@ -639,10 +660,10 @@ const Index = () => {
             <div>
               <h4 className="text-xl font-bold mb-6 text-teal-400">{t.footer.contactInfo}</h4>
               <div className="space-y-3 text-gray-300 text-lg">
-                <p>📍 123 Wellness Lane</p>
-                <p>🏙️ Health City, HC 456</p>
-                <p>📞 Phone: +1 (123) 456-7890</p>
-                <p>📧 Email: info@healwellhospital.com</p>
+                <p>📍 Multiple Locations in Telangana</p>
+                <p>🏙️ Hyderabad & Secunderabad</p>
+                <p>📞 Phone: +91 (040) 123-4567</p>
+                <p>📧 Email: info@telanganagovthospitals.in</p>
               </div>
             </div>
           </div>
